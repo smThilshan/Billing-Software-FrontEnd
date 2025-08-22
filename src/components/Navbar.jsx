@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -29,12 +30,12 @@ const Navbar = () => {
 
       {/* Desktop Menu */}
       <div className="hidden sm:flex items-center gap-8">
-        <a href="#">Dashboard</a>
-        <a href="#">Explore</a>
-        <a href="#">Manage Item</a>
-        <a href="#">Manage Category</a>
-        <a href="#">Manage Users</a>
-        <a href="#">Order History</a>
+        <Link to="/">Dashboard</Link>
+        <Link to="/explore">Explore</Link>
+        <Link to="/manage-items">Manage Items</Link>
+        <Link to="/manage-category">Manage Category</Link>
+        <Link to="/manage-users">Manage Users</Link>
+        <Link to="/order-history">Order History</Link>
 
         <div className="hidden lg:flex items-center text-sm gap-2 border border-gray-300 px-3 rounded-full">
           <input
@@ -68,13 +69,19 @@ const Navbar = () => {
         </div>
       </div>
 
-        {/* Mobile Hamburger Button */}
+      {/* Mobile Hamburger Button */}
       <button
         onClick={() => setOpen(!open)}
         aria-label="Menu"
         className="sm:hidden"
       >
-        <svg width="21" height="15" viewBox="0 0 21 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          width="21"
+          height="15"
+          viewBox="0 0 21 15"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <rect width="21" height="1.5" rx=".75" fill="#426287" />
           <rect x="8" y="6" width="13" height="1.5" rx=".75" fill="#426287" />
           <rect x="6" y="13" width="15" height="1.5" rx=".75" fill="#426287" />
@@ -83,14 +90,28 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`${open ? 'flex' : 'hidden'} absolute top-[60px] left-0 w-full bg-white shadow-md py-4 flex-col items-start gap-2 px-5 text-sm md:hidden`}
+        className={`${
+          open ? "flex" : "hidden"
+        } absolute top-[60px] left-0 w-full bg-white shadow-md py-4 flex-col items-start gap-2 px-5 text-sm md:hidden`}
       >
-        <a href="#" className="block">Dashboard</a>
-        <a href="#" className="block">Explore</a>
-        <a href="#" className="block">Manage Item</a>
-        <a href="#" className="block">Manage Category</a>
-        <a href="#" className="block">Manage Users</a>
-        <a href="#" className="block">Order History</a>
+        <Link to="/" className="block">
+          Dashboard
+        </Link>
+        <Link to="/explore" className="block">
+          Explore
+        </Link>
+        <Link to="/manage-items" className="block">
+          Manage Items
+        </Link>
+        <Link to="/manage-category" className="block">
+          Manage Category
+        </Link>
+        <Link to="/manage-users" className="block">
+          Manage Users
+        </Link>
+        <Link to="/order-history" className="block">
+          Order History
+        </Link>
       </div>
     </nav>
   );
